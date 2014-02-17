@@ -1,0 +1,45 @@
+extends layout
+block head
+  title Mapper
+block content
+  div#map-canvas
+  div.toolbox
+    Nothing here {{'yet' + '!'}}
+    ul.nav.nav-tabs
+      li.active 
+        a(href="#locations", data-toggle="tab") Locations
+      li
+        a(href="#routes", data-toggle="tab") Routes
+
+    div.tab-content
+      div.tab-pane.active#locations
+        button.btn.btn-default#addLocationButton(type="button")
+          span.glyphicon.glyphicon-map-marker Add Location
+        div#addLocation(style="padding: 10px; display: none")
+          form#newLocationForm(role="form")
+            div.form-group
+              label(for="newLocationLatitude") Latitude
+              input.form-control#newLocationLatitude(type="text", placeholder="Latitude")
+            div.form-group
+              label(for="newLocationLongitude") Longitude
+              input.form-control#newLocationLongitude(type="text", placeholder="Longitude")
+            div.form-group
+              label(for="newLocationName") Name
+              input.form-control#newLocationName(type="text", placeholder="Location name")
+            div.form-group
+              label(for="newLocationType") Type
+              input.form-control#newLocationType(type="text", placeholder="Location type")
+            button.btn.btn-default(type="submit") Submit
+        //- div.locationsList
+        table.table.table-striped#locationsTable
+          thead
+            tr
+              th name
+              th type
+              th latitude
+              th longitude
+          tbody
+
+      div.tab-pane#routes
+        button.btn.btn-default#addLocationButton(type="button")
+          span.glyphicon.glyphicon-map-marker Add Route
